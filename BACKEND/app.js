@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/user-routes";
 import { singup } from "./controllers/user-controller";
+import adminRouter from "./routes/admin-routes";
+import movieRouter from "./routes/movie-routes";
+import bookingRouter from "./routes/booking-routes";
 dotenv.config();
 const app = express();
 
@@ -10,6 +13,10 @@ const app = express();
 app.use(express.json());
 
 app.use("/user",userRouter);
+app.use("/admin",adminRouter);
+app.use("/movie",movieRouter);
+app.use("/booking",bookingRouter);
+
 
 mongoose
   .connect(
