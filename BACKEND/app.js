@@ -6,11 +6,14 @@ import { singup } from "./controllers/user-controller";
 import adminRouter from "./routes/admin-routes";
 import movieRouter from "./routes/movie-routes";
 import bookingRouter from "./routes/booking-routes";
+import cors from "cors"
 dotenv.config();
 const app = express();
 
 //middlewares
+app.use(cors())
 app.use(express.json());
+
 
 app.use("/user",userRouter);
 app.use("/admin",adminRouter);

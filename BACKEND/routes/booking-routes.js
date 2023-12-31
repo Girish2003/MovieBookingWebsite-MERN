@@ -1,5 +1,8 @@
 import express from "express"
-import { newBooking } from "../controllers/booking-controller";
+import { deleteBooking, getBookingsById, newBooking } from "../controllers/booking-controller";
 const bookingRouter=express.Router();
 bookingRouter.post('/',newBooking)
+bookingRouter.get("/:id",getBookingsById);
+
+bookingRouter.delete("/:id",deleteBooking);
 export default bookingRouter;
