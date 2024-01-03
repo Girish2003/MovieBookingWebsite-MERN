@@ -38,7 +38,7 @@ export const singup = async (req, res, next) => {
   if (!user) {
     return res.status(500).json({ message: "Unexpected Error Occured" });
   }
-  return res.status(201).json({ user });
+  return res.status(201).json({ id:user._id });
 };
 export const updateUser = async (req, res, next) => {
   const id = req.params.id;
