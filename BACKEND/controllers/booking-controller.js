@@ -7,11 +7,12 @@ export const newBooking = async (req, res, next) => {
   const { movie, date, seatNumber, user } = req.body;
   let existingMovie;
   let existingUser;
+  console.log(user);
   try {
     existingMovie = await Movie.findById(movie);
-    existingUser = await User.findById(user);
+    existingUser = await User.findById(req.params.id);
   } catch (err) {
-    return console.log(err);
+    return console.log(err+"hi");
   }
   if (!existingMovie) {
     return res.status(404).json({ message: "movie not found with given ID" });

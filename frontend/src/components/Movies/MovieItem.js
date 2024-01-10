@@ -3,10 +3,12 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Typography,
 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
+// import imagee from "../../assets/ayalaan.webp"
+
 
 const MovieItem = ({title,releseDate,posterUrl,id}) => {
   return (
@@ -19,7 +21,9 @@ const MovieItem = ({title,releseDate,posterUrl,id}) => {
         ":hover": { boxShadow: "10px 10px 20px #ccc" },
       }}
     >
-      <img height={"50%"} width={"100%"} src={posterUrl} alt={title} />
+      
+      <img style={{ height: '50%', width: '100%' }} src={posterUrl} alt={title} />
+      {/* <p>{posterUrl}</p> */}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
@@ -29,7 +33,7 @@ const MovieItem = ({title,releseDate,posterUrl,id}) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button sx={{ margin: "auto" }} size="small">
+        <Button variant="contained" fullWidth LinkComponent={Link} to={`/booking/${id}`} sx={{ margin: "auto", bgcolor:"#2b2d42", ":hover":{bgcolor:"#121217"}  }} size="small">
           Book
         </Button>
         {/* <Button size="small">Learn More</Button> */}

@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     getAllMovies().then((data)=>setmovies(data.movies)).catch((err)=>console.log(err))
   }, [])
-  console.log(movies);
+  // console.log(movies);
   
   return (
     <Box width={"100%"} height={"100%"} margin="auto" marginTop={2}>
@@ -34,7 +34,7 @@ const HomePage = () => {
         margin={"auto"}
       >
         {movies&&movies.slice(0,4).map((movie,index) => (
-          <MovieItem id={movie.id} title={movie.title} posterUrl={movie.posterUrl} releaseDate={movie.releaseDate} key={index} />
+          <MovieItem id={movie._id} title={movie.title} posterUrl={movie.posterUrl} releaseDate={movie.releaseDate} key={index} />
         ))}
       </Box>
       <Box display={"flex"} padding={5} margin={"auto"}>
